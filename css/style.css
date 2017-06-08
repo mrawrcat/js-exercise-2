@@ -25,6 +25,11 @@ form{
 ul {
 	background: grey;
 	text-align: center;
+	/*display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap-reverse;*/
+	word-wrap: break-word;
 }
 
 label{
@@ -37,7 +42,23 @@ input{
 
 li {
 	padding: 5px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 button {
 	padding: 10px;
+}
+
+.close {
+	    position: relative;
+   		right: 0;
+    	top: 0;
+    	padding: 5px;
+}
+
+.close:hover {
+    background-color: #f44336;
+    color: white;
 }
