@@ -2,12 +2,42 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	background: red;
+	/*background: red;*/
 }
 h1{
 	color: purple;
 	background: green;
 	text-align: center;
-	margin: 20px;
+	/*margin: 20px;*/
+	padding: 10px;
+}
+
+form{
+	background: red;
+	text-align: center;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	/*margin: 0 5%;*/
+}
+
+ul {
+	background: grey;
+	text-align: center;
+}
+
+label{
+	font-size: 20px;
+}
+input{
+	padding: 10px;
+	margin: 2px;
+}
+
+li {
+	padding: 5px;
+}
+button {
 	padding: 10px;
 }
