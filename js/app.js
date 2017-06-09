@@ -1,5 +1,7 @@
 // console.log("this works");
 var userSubmit = document.querySelector('#user-submit');
+var userInput = document.querySelector('#user-input'); //dont put .value here
+var toDoList = document.querySelector('#to-do-list');
 // ============================================
 // Create a "close" button and append it to each list item
 
@@ -22,27 +24,11 @@ var userSubmit = document.querySelector('#user-submit');
 //     div.style.display = "none";
 //   }
 // }
-
-
-
-
-
-
-
-
-
 // ========================================
-function prependChild(parent, newfirst){
-	parent.insertBefore(newfirst, parent.firstChild);
-}
+
 
 function addToDo(event){
 	event.preventDefault();
-	// console.log(event);
-	var userInput = document.querySelector('#user-input'); //dont put .value here
-	var toDoList = document.querySelector('#to-do-list');
-	// console.log(userInput.value);
-	// console.log(toDoList);
 	var UserInputVal = userInput.value;
 	if(UserInputVal === ''){
 		return false;
@@ -51,23 +37,36 @@ function addToDo(event){
 	// 	return false;
 	// }
 	
-	var inputList = '<li>' + userInput.value  + '<span class ="close">' +  "\u00D7" + '</span>'  +  '</li>';
+	var inputList = '<li><i class="fa fa-window-close close-to-do" aria-hidden="true"></i>' + userInput.value  + /*'<span class ="close">' +  "\u00D7" + '</span>'*/ '</li>';
 	
 	
 	toDoList.innerHTML = inputList + toDoList.innerHTML;
 	userInput.value = '';
 	// ===================this is to close the x at the end=======================
-	var close = document.getElementsByClassName("close");
-	var i;
-	for (i = 0; i < close.length; i++) {
-	  close[i].onclick = function() {
-   	  var div = this.parentElement;
-   	  div.style.display = "none";
-  }
-}
+	//var close = document.getElementsByClassName("close");
+
+// 	for (var i = 0; i < close.length; i++) {
+// 	  close[i].onclick = function() {
+//    	  var div = this.parentElement;
+//    	  div.style.display = "none";
+//   }
+// }
 }
 
-// Click on a close button to hide the current list item
+//===== Click on a close button to hide the current list item =========
+function removeToDo(event){
+	if(event.target.classList.contains('close-to-do')){
+		// console.log('bleh');
+		var li = event.target.parentElement;
+		// console.log(li);	
+		toDoList.removeChild(li);
+    	
 
+	}
+
+}
+
+// ============================
 userSubmit.addEventListener('click', addToDo, false);
+toDoList.addEventListener('click', removeToDo, false);
 
