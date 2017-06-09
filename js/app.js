@@ -54,7 +54,7 @@ function addToDo(event){
 	var inputList = '<li>' + userInput.value  + '<span class ="close">' +  "\u00D7" + '</span>'  +  '</li>';
 	
 	
-	toDoList.innerHTML += inputList ;
+	toDoList.innerHTML = inputList + toDoList.innerHTML;
 	userInput.value = '';
 	// ===================this is to close the x at the end=======================
 	var close = document.getElementsByClassName("close");
